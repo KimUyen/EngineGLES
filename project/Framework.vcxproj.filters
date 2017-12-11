@@ -1,0 +1,224 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Source Files\Camera">
+      <UniqueIdentifier>{499d4bcd-7d58-4537-bd06-81d2599b8774}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Objects">
+      <UniqueIdentifier>{a71b2c94-f9ca-4b91-a326-f0e52e6c3b9e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Scenes">
+      <UniqueIdentifier>{ae79a36c-05f1-4f49-916c-f26bede8b045}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\MutualStructs">
+      <UniqueIdentifier>{fa3b053f-a857-4537-935d-be845bc0e837}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Program">
+      <UniqueIdentifier>{37a745c1-bd3b-47e8-8217-41396b6d59a8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\ResourceManager">
+      <UniqueIdentifier>{eb1ad8ee-5f78-4447-b5ed-e29fcccb7109}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\TGA">
+      <UniqueIdentifier>{040f0a6f-a1e2-4c65-b35a-bff33bcc6f1a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\NFG">
+      <UniqueIdentifier>{25e4f249-f462-445a-920b-a8d2676165b0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\Shaders">
+      <UniqueIdentifier>{2470eae8-e068-4d0f-98ca-7b7a5a33580f}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\src\main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\ogles_sys.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\TGA.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Object.cpp">
+      <Filter>Source Files\Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\ResourceManager.cpp">
+      <Filter>Source Files\ResourceManager</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Camera.cpp">
+      <Filter>Source Files\Camera</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Texture.cpp">
+      <Filter>Source Files\Program</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\CubeTex.cpp">
+      <Filter>Source Files\Program</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\CameraManager.cpp">
+      <Filter>Source Files\Camera</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\GLProgram.cpp">
+      <Filter>Source Files\Program</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Log.h">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\GLModel.cpp">
+      <Filter>Source Files\Program</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\GLImportModelFromFile.cpp">
+      <Filter>Source Files\Program</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\src\TGA.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\ogles_sys.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Object.h">
+      <Filter>Source Files\Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\MutualStructs.h">
+      <Filter>Source Files\MutualStructs</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\ResourceManager.h">
+      <Filter>Source Files\ResourceManager</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Camera.h">
+      <Filter>Source Files\Camera</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Texture.h">
+      <Filter>Source Files\Program</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\CubeTex.h">
+      <Filter>Source Files\Program</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\CameraManager.h">
+      <Filter>Source Files\Camera</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\GLProgram.h">
+      <Filter>Source Files\Program</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\GLModel.h">
+      <Filter>Source Files\Program</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\data\displacement.fs">
+      <Filter>Resource Files\Shaders</Filter>
+    </None>
+    <None Include="..\data\displacement.vs">
+      <Filter>Resource Files\Shaders</Filter>
+    </None>
+    <None Include="..\data\cube.vs">
+      <Filter>Resource Files\Shaders</Filter>
+    </None>
+    <None Include="..\data\cube.fs">
+      <Filter>Resource Files\Shaders</Filter>
+    </None>
+    <None Include="..\data\simple.fs">
+      <Filter>Resource Files\Shaders</Filter>
+    </None>
+    <None Include="..\data\simple.vs">
+      <Filter>Resource Files\Shaders</Filter>
+    </None>
+    <None Include="..\data\reflection.vs">
+      <Filter>Resource Files\Shaders</Filter>
+    </None>
+    <None Include="..\data\reflection.fs">
+      <Filter>Resource Files\Shaders</Filter>
+    </None>
+    <None Include="..\data\normalMap.vs">
+      <Filter>Resource Files\Shaders</Filter>
+    </None>
+    <None Include="..\data\normalMap.fs">
+      <Filter>Resource Files\Shaders</Filter>
+    </None>
+    <None Include="..\data\Bila.nfg">
+      <Filter>Resource Files\NFG</Filter>
+    </None>
+    <None Include="..\data\Fire.nfg">
+      <Filter>Resource Files\NFG</Filter>
+    </None>
+    <None Include="..\data\SkyBox.nfg">
+      <Filter>Resource Files\NFG</Filter>
+    </None>
+    <None Include="..\data\water.nfg">
+      <Filter>Resource Files\NFG</Filter>
+    </None>
+    <None Include="..\data\Woman1.nfg">
+      <Filter>Resource Files\NFG</Filter>
+    </None>
+    <None Include="..\data\Woman2.nfg">
+      <Filter>Resource Files\NFG</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="..\data\Dirt.tga">
+      <Filter>Resource Files\TGA</Filter>
+    </Image>
+    <Image Include="..\data\Fire.tga">
+      <Filter>Resource Files\TGA</Filter>
+    </Image>
+    <Image Include="..\data\Fire_disp.tga">
+      <Filter>Resource Files\TGA</Filter>
+    </Image>
+    <Image Include="..\data\Fire_mask.tga">
+      <Filter>Resource Files\TGA</Filter>
+    </Image>
+    <Image Include="..\data\Grass.tga">
+      <Filter>Resource Files\TGA</Filter>
+    </Image>
+    <Image Include="..\data\Rock.tga">
+      <Filter>Resource Files\TGA</Filter>
+    </Image>
+    <Image Include="..\data\Rock_normal.tga">
+      <Filter>Resource Files\TGA</Filter>
+    </Image>
+    <Image Include="..\data\Skybox_face0.tga">
+      <Filter>Resource Files\TGA</Filter>
+    </Image>
+    <Image Include="..\data\Skybox_face1.tga">
+      <Filter>Resource Files\TGA</Filter>
+    </Image>
+    <Image Include="..\data\Skybox_face2.tga">
+      <Filter>Resource Files\TGA</Filter>
+    </Image>
+    <Image Include="..\data\Skybox_face3.tga">
+      <Filter>Resource Files\TGA</Filter>
+    </Image>
+    <Image Include="..\data\Skybox_face4.tga">
+      <Filter>Resource Files\TGA</Filter>
+    </Image>
+    <Image Include="..\data\Skybox_face5.tga">
+      <Filter>Resource Files\TGA</Filter>
+    </Image>
+    <Image Include="..\data\Terrain_blend_map.tga">
+      <Filter>Resource Files\TGA</Filter>
+    </Image>
+    <Image Include="..\data\WaterNormal.tga">
+      <Filter>Resource Files\TGA</Filter>
+    </Image>
+    <Image Include="..\data\Woman1.tga">
+      <Filter>Resource Files\TGA</Filter>
+    </Image>
+    <Image Include="..\data\Woman2.tga">
+      <Filter>Resource Files\TGA</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="..\data\ResourceManager.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+  </ItemGroup>
+</Project>

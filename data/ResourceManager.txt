@@ -1,0 +1,52 @@
+NumObjs: 5
+
+TypeTex: 1
+Shader: reflection
+Model: Bila.nfg
+Scale: 0.005
+Trans: -10.0 -40.0 200.0
+Numpath: 6
+Texture: SkyBox_face0.tga SkyBox_face1.tga SkyBox_face2.tga SkyBox_face3.tga SkyBox_face4.tga SkyBox_face5.tga
+NumTex: 1
+VarName: u_cube_tex
+
+TypeTex: 1
+Shader: cube
+Model: SkyBox.nfg
+Scale: 10
+Trans: 0.0 0.0 0.0
+Numpath: 6
+Texture: SkyBox_face0.tga SkyBox_face1.tga SkyBox_face2.tga SkyBox_face3.tga SkyBox_face4.tga SkyBox_face5.tga
+NumTex: 1
+VarName: u_cube_tex
+
+
+TypeTex: 0
+Shader: simple
+Model: Woman1.nfg
+Scale: 0.1
+Trans: 0.0 0.0 0.0
+Numpath: 1
+Texture: Woman1.tga
+NumTex: 1
+VarName: u_tex
+
+TypeTex: 0
+Shader: displacement
+Model: Fire.nfg
+Scale: 0.1
+Trans: 0.0 -7.0 -10.0
+Numpath: 3
+Texture: Fire.tga Fire_disp.tga Fire_mask.tga
+NumTex: 3
+VarName: FireTexture FireDisp FireMask
+
+TypeTex: 0
+Shader: normalMap
+Model: water.nfg
+Scale: 0.5
+Trans: 0.0 0.0 0.0
+Numpath: 2
+Texture: Rock.tga WaterNormal.tga
+NumTex: 2
+VarName: u_tex u_norm_tex

@@ -1,0 +1,143 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{A360BC0A-BDD7-4282-BF36-FFAD48C3BAB2}</ProjectGuid>
+    <RootNamespace>Framework</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <OutDir>$(SolutionDir)..\bin</OutDir>
+    <SourcePath>$(ProjectDir)..\src;</SourcePath>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>false</SDLCheck>
+      <AdditionalIncludeDirectories>$(SolutionDir)..\lib\glm-0.9.7.1\glm\;$(SolutionDir)..\lib\OGLES20\Include\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>$(SolutionDir)..\lib\OGLES20\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>libEGL.lib;libGLESv2.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="..\src\Camera.cpp" />
+    <ClCompile Include="..\src\CameraManager.cpp" />
+    <ClCompile Include="..\src\CubeTex.cpp" />
+    <ClCompile Include="..\src\GLImportModelFromFile.cpp" />
+    <ClCompile Include="..\src\Log.h" />
+    <ClCompile Include="..\src\main.cpp" />
+    <ClCompile Include="..\src\GLModel.cpp" />
+    <ClCompile Include="..\src\Object.cpp" />
+    <ClCompile Include="..\src\ogles_sys.cpp" />
+    <ClCompile Include="..\src\GLProgram.cpp" />
+    <ClCompile Include="..\src\ResourceManager.cpp" />
+    <ClCompile Include="..\src\Texture.cpp" />
+    <ClCompile Include="..\src\TGA.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\src\Camera.h" />
+    <ClInclude Include="..\src\CameraManager.h" />
+    <ClInclude Include="..\src\CubeTex.h" />
+    <ClInclude Include="..\src\GLModel.h" />
+    <ClInclude Include="..\src\MutualStructs.h" />
+    <ClInclude Include="..\src\Object.h" />
+    <ClInclude Include="..\src\ogles_sys.h" />
+    <ClInclude Include="..\src\GLProgram.h" />
+    <ClInclude Include="..\src\ResourceManager.h" />
+    <ClInclude Include="..\src\Texture.h" />
+    <ClInclude Include="..\src\TGA.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\data\Bila.nfg" />
+    <None Include="..\data\cube.fs" />
+    <None Include="..\data\cube.vs" />
+    <None Include="..\data\displacement.fs" />
+    <None Include="..\data\displacement.vs" />
+    <None Include="..\data\Fire.nfg" />
+    <None Include="..\data\normalMap.fs" />
+    <None Include="..\data\normalMap.vs" />
+    <None Include="..\data\reflection.fs" />
+    <None Include="..\data\reflection.vs" />
+    <None Include="..\data\simple.fs" />
+    <None Include="..\data\simple.vs" />
+    <None Include="..\data\SkyBox.nfg" />
+    <None Include="..\data\water.nfg" />
+    <None Include="..\data\Woman1.nfg" />
+    <None Include="..\data\Woman2.nfg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="..\data\Dirt.tga" />
+    <Image Include="..\data\Fire.tga" />
+    <Image Include="..\data\Fire_disp.tga" />
+    <Image Include="..\data\Fire_mask.tga" />
+    <Image Include="..\data\Grass.tga" />
+    <Image Include="..\data\Rock.tga" />
+    <Image Include="..\data\Rock_normal.tga" />
+    <Image Include="..\data\Skybox_face0.tga" />
+    <Image Include="..\data\Skybox_face1.tga" />
+    <Image Include="..\data\Skybox_face2.tga" />
+    <Image Include="..\data\Skybox_face3.tga" />
+    <Image Include="..\data\Skybox_face4.tga" />
+    <Image Include="..\data\Skybox_face5.tga" />
+    <Image Include="..\data\Terrain_blend_map.tga" />
+    <Image Include="..\data\WaterNormal.tga" />
+    <Image Include="..\data\Woman1.tga" />
+    <Image Include="..\data\Woman2.tga" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="..\data\ResourceManager.txt" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
