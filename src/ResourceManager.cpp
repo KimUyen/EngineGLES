@@ -3,17 +3,17 @@
 #include "Object.h"
 #include <vector>
 
-ResourceManager * ResourceManager::m_instance = nullptr;
-
-ResourceManager * ResourceManager::GetInstance()
-{
-	if (m_instance == nullptr)
-	{
-		m_instance = new ResourceManager();
-	}
-
-	return m_instance;
-}
+//ResourceManager * ResourceManager::m_instance = nullptr;
+//
+//ResourceManager * ResourceManager::GetInstance()
+//{
+//	if (m_instance == nullptr)
+//	{
+//		m_instance = new ResourceManager();
+//	}
+//
+//	return m_instance;
+//}
 
 vector<Object*> ResourceManager::LoadFrom(char * path)
 {

@@ -10,16 +10,6 @@ CameraManager::CameraManager()
 {
 }
 
-CameraManager * CameraManager::GetInstance()
-{
-	if (m_instance == nullptr)
-	{
-		m_instance = new CameraManager();
-	}
-	
-	return m_instance;
-}
-
 Camera * CameraManager::GetCurrentCamera()
 {
 	if (m_listCamera.size() != 0)

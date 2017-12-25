@@ -3,7 +3,7 @@
 #include "glm.hpp"
 #include "MutualStructs.h"
 #include "Texture.h"
-#include "Shader.h"
+//#include "Shader.h"
 #include "gtc\matrix_transform.hpp"
 #include "CameraManager.h"
 #include <gl\GLU.h>

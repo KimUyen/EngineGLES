@@ -77,6 +77,15 @@
     <ClCompile Include="..\src\GLImportModelFromFile.cpp">
       <Filter>Source Files\Program</Filter>
     </ClCompile>
+    <ClCompile Include="..\src\InputManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\FileSystem.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Application.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\src\TGA.h">
@@ -112,6 +121,11 @@
     <ClInclude Include="..\src\GLModel.h">
       <Filter>Source Files\Program</Filter>
     </ClInclude>
+    <ClInclude Include="..\src\InputManager.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\FileSystem.h" />
+    <ClInclude Include="..\src\Application.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\data\displacement.fs">

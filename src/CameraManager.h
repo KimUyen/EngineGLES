@@ -5,13 +5,12 @@
 class CameraManager
 {
 private:
-	std::stack<Camera *> m_listCamera;
+	static std::stack<Camera *> m_listCamera;
 	static CameraManager * m_instance;
 	CameraManager();
 	~CameraManager();
 
 public:
-	static CameraManager * GetInstance();
-	Camera* GetCurrentCamera();
-	void AddCamera(Camera * cam);
+	static Camera* GetCurrentCamera();
+	static void AddCamera(Camera * cam);
 };

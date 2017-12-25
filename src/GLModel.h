@@ -10,9 +10,12 @@ protected:
 	bool ImportModelFromNFGFile(char* path);
 	std::vector<float> _positions;
 	std::vector<float> _normals;
+	std::vector<float> _binormals;
 	std::vector<float> _texCoords;
 	std::vector<float> _sTangents;
 	std::vector<float> _colors;
+	std::vector<GLushort> _pIndices;
+	int					 _nIndices;
 
 };
 

@@ -12,6 +12,5 @@ private:
 
 public:
 	
-	static ResourceManager * GetInstance();
-	vector<Object *> LoadFrom(char * path);
+	static vector<Object *> LoadFrom(char * path);
 };
