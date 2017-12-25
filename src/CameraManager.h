@@ -1,12 +1,11 @@
 #pragma once
-#include <stack>
+#include <vector>
 #include "Camera.h"
 
 class CameraManager
 {
 private:
-	static std::stack<Camera *> m_listCamera;
-	static CameraManager * m_instance;
+	static std::vector<Camera *> m_listCamera;
 	CameraManager();
 	~CameraManager();
 

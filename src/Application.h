@@ -8,10 +8,10 @@
 class Application
 {
 private:
-	std::vector<Object*> _objects;
+	static std::vector<Object*> _objects;
 public:
-	void Initialize();
-	void Update(long time);
+	static void Initialize();
+	static void Update(float time);
 	~Application();
 };
 

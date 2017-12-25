@@ -92,7 +92,8 @@ vector<Object*> ResourceManager::LoadFrom(char * path)
 		fscanf(f, "\r\n");
 
 		// Add object to list
-		Object * newObj = new Object(id, pathShader, pathModel, numTex, varTex, numPath, pathTex);
+		//Object * newObj = new Object(id, pathShader, pathModel, numTex, varTex, numPath, pathTex);
+		Object * newObj = new Object(id);
 		newObj->SetScale(glm::vec3(scale, scale, scale));
 		newObj->SetTranslate(trans);
 		ListObj.push_back(newObj);

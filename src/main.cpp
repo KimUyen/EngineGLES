@@ -10,13 +10,9 @@
 #include "Camera.h"
 #include "CameraManager.h"
 #include "FileSystem.h"
-
+#include "Application.h"
+#include "InputManager.h"
 std::vector <Object *> objList;
-
-float scale = 0.1f;
-float u_time = 0.0f;
-float dMax = 0.1f;
-
 
 void Render()
 {
@@ -65,11 +61,11 @@ void main()
 
 	sysInit(&oglSysCtx, 800, 600);
 
-	Init();
+	Application::Initialize();
 
-	sysRegisterKeyFunc(&oglSysCtx, Key);
+	sysRegisterKeyFunc(&oglSysCtx, InputManager::Keyboard);
 	sysRegisterRenderFunc(&oglSysCtx, Render);
-	sysRegisterUpdateFunc(&oglSysCtx, Update);
+	sysRegisterUpdateFunc(&oglSysCtx, Application::Update);
 
 	sysMainLoop(&oglSysCtx);
 }

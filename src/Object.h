@@ -24,9 +24,11 @@ private:
 
 
 	void		CalModelMatrix();
+	bool		LoadModel(char * path);
+	GLuint		CompileProgram(const char * vertexSrc, const char * pixelSrc);
 public:
 
-	Object(int id, char * pathShader, char *pathModel, int numTex, char ** varNameTex, int numPath, char ** pathTex);
+	Object(int id);
 	~Object();
 
 	void		Render();

@@ -19,10 +19,8 @@ protected:
 	//glm::mat4x4 m_MVPMatrix;
 	//glm::mat4x4 m_ModelMatrix;
 
-	
-	GLuint CompileProgram(const char * vertexSrc, const char * pixelSrc);
-
 public:
+	GLuint CompileProgram(const char * vertexSrc, const char * pixelSrc);
 	// Returns the GL program object for the shader
 	// \return the GL shader object ID
 	GLuint getProgram() { return m_program; }

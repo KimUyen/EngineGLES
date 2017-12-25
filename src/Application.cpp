@@ -1,5 +1,5 @@
 #include "Application.h"
-
+std::vector<Object*> Application::_objects = std::vector<Object*>();
 void Application::Initialize()
 {
 	Camera * camera;
@@ -9,7 +9,7 @@ void Application::Initialize()
 	_objects = ResourceManager::LoadFrom("ResourceManager.txt");
 }
 
-void Application::Update(long time)
+void Application::Update(float time)
 {
 	//u_time += deltaTime;
 	glm::vec4 ambLight = { 0.3f, 0.3f, 0.3f, 1.0f };
@@ -23,7 +23,7 @@ void Application::Update(long time)
 		_objects[i]->SetValueForUniform3FV("u_eyePos", (GLfloat*)&CameraManager::GetCurrentCamera()->GetPosCamera());
 
 		_objects[i]->SetValueForUniform1F("u_Time", time);
-		_objects[i]->SetValueForUniform1F("dMax", dMax);
+		_objects[i]->SetValueForUniform1F("dMax", 1.0f);
 
 		_objects[i]->SetValueForUniform4FV("u_ambLight", (GLfloat*)&ambLight);
 		_objects[i]->SetValueForUniform4FV("u_diffLight", (GLfloat*)&diffLight);

@@ -1,6 +1,7 @@
 #include "GLModel.h"
 #include <cstdio>
 #include "glm.hpp"
+#include <windows.h>
 #include <gl\GLU.h>
 
 struct NFGVertex
@@ -19,7 +20,7 @@ bool GLModel::ImportModelFromNFGFile(char* path)
 	if (f == NULL)
 	{
 		printf("Load NFG failed: %s", path);
-		return;
+		return false;
 	}
 	
 	// Read vertices

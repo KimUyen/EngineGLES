@@ -1,10 +1,7 @@
 #include "ogles_sys.h"
-#include "Model.h"
 #include "glm.hpp"
 #include "MutualStructs.h"
 #include "Texture.h"
-#include "Shader.h"
-#include <gl\GLU.h>
 #include "GLModel.h"
 
 

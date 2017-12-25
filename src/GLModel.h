@@ -1,6 +1,7 @@
 #pragma once
 #include <vector>
-
+#include <windows.h>
+#include <gl\GLU.h>
 class GLModel
 {
 protected:
