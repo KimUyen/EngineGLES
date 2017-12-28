@@ -1,5 +1,6 @@
 #include "CubeTex.h"
 #include "TGA.h"
+#include "Log.h"
 
 CubeTex::CubeTex(char ** pathToLoad, int size, char * nameTex)
 {
@@ -37,10 +38,14 @@ CubeTex::CubeTex(char ** pathToLoad, int size, char * nameTex)
 void CubeTex::Render(GLuint programIdx, int idx)
 {
 	// Active Texture
+	glUseProgram(programIdx);
 	glActiveTexture(GL_TEXTURE0 + idx);
 	glBindTexture(GL_TEXTURE_CUBE_MAP, m_texIdx);
 	GLint texUniform = glGetUniformLocation(programIdx, m_varNameTex);
-	glUniform1i(texUniform, idx);
+	if (texUniform != -1)
+		glUniform1i(texUniform, idx);
+	else
+		LOGI("CubeTex", "Can't glGetUniformLocation");
 }
 
 CubeTex::~CubeTex()

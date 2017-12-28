@@ -9,11 +9,9 @@ class GLProgram
 {
 protected:
 	GLuint m_program;
+
 	//GLuint m_fragmentShaderIdx;
 	//GLuint m_vertexShaderIdx;
-	//
-	//int			m_numTex;
-	//Texture **   m_texture;
 	//Model  *    m_model;
 	//
 	//glm::mat4x4 m_MVPMatrix;

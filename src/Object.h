@@ -9,10 +9,13 @@ class Object
 {
 private:
 	//Need for init
-	int			m_TypeTex;
+	int			m_id;
 	//For Model
 	GLModel *	m_model;
 	GLProgram * m_program;
+	int			m_numTex;
+	Texture **   m_texture;
+
 	glm::vec3 m_vecTrans;
 	glm::vec3 m_vecScale;
 
@@ -24,13 +27,13 @@ private:
 
 
 	void		CalModelMatrix();
-	bool		LoadModel(char * path);
-	GLuint		CompileProgram(const char * vertexSrc, const char * pixelSrc);
 public:
 
 	Object(int id);
 	~Object();
-
+	bool		LoadModel(char * path);
+	void		LoadTexture(int typeTex, char** varTex, char ** allpath, int numTex);
+	GLuint		CreateProgram(const char * vertexSrc, const char * pixelSrc);
 	void		Render();
 	// for call before render.
 	void		SetScale(glm::vec3 scale);

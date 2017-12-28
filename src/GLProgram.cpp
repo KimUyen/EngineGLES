@@ -9,7 +9,8 @@
 GLuint CompileShader(GLenum type, const char* filename)
 {
 	FILE * file;
-	if (fopen_s(&file, filename, "rb") != 0)
+	fopen_s(&file, filename, "rb");
+	if (file != NULL)
 	{
 		fseek(file, 0, SEEK_END);
 		long size = ftell(file);
@@ -108,7 +109,7 @@ GLuint GLProgram::CompileProgram(const char * vertexSrc, const char * pixelSrc)
 			glDeleteProgram(program);
 			program = 0;
 		}
-
+		m_program = program;
 		return program;
 	}
 

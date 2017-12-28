@@ -39,8 +39,3 @@ enum DirectRotate
 	DR_RIGHTaroundZ
 };
 
-enum TypeTexture
-{
-	TEX_2D,
-	TEX_CUBE
-};

@@ -10,6 +10,7 @@ class Application
 private:
 	static std::vector<Object*> _objects;
 public:
+	static void Render();
 	static void Initialize();
 	static void Update(float time);
 	~Application();

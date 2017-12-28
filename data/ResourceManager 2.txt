@@ -1,0 +1,11 @@
+NumObjs: 1
+
+TypeTex: 1
+VShader: cube.vs FShader: cube.fs
+Model: SkyBox.nfg
+Scale: 10
+Trans: 0.0 0.0 0.0
+Numpath: 6
+Texture: SkyBox_face0.tga SkyBox_face1.tga SkyBox_face2.tga SkyBox_face3.tga SkyBox_face4.tga SkyBox_face5.tga
+NumTex: 1
+VarName: u_cube_tex

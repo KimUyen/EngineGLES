@@ -8,6 +8,8 @@
 #include "CameraManager.h"
 #include <windows.h>
 #include <gl\GLU.h>
+#include "CubeTex.h"
+#include "Log.h"
 
 void Object::CalModelMatrix()
 {
@@ -23,7 +25,31 @@ bool Object::LoadModel(char * path)
 	return m_model->ImportModelFromFile(path);
 }
 
-GLuint Object::CompileProgram(const char * vertexSrc, const char * pixelSrc)
+void Object::LoadTexture(int typeTex, char ** varNameTex, char ** pathTex, int numTex)
+{
+	m_numTex = numTex;
+	switch (typeTex)
+	{
+	case TypeTexture::TEX_2D:
+		m_texture = new Texture *[m_numTex];
+		for (int i = 0; i < m_numTex; i++)
+		{
+			m_texture[i] = new Texture(pathTex[i], varNameTex[i]);
+		}
+		break;
+
+	case TypeTexture::TEX_CUBE:
+		m_texture = new Texture *[1];
+		m_texture[0] = (Texture*)(new CubeTex(pathTex, m_numTex, varNameTex[0]));
+		break;
+
+	default:
+		break;
+
+	}
+}
+
+GLuint Object::CreateProgram(const char * vertexSrc, const char * pixelSrc)
 {
 	return m_program->CompileProgram(vertexSrc, pixelSrc);
 }
@@ -31,7 +57,8 @@ GLuint Object::CompileProgram(const char * vertexSrc, const char * pixelSrc)
 //Object::Object(int id, char * pathShader, char *pathModel, int numTex, char ** varNameTex, int numPath, char ** pathTex)
 Object::Object(int id)
 {
-	m_TypeTex = id;
+	//m_TypeTex = id;
+	m_id = id;
 	m_ModelMatrix = glm::mat4x4(1.0f);
 	m_vecTrans = glm::vec3(0.0f, 0.0f, 0.0f);
 	m_angle = 0.0f;
@@ -53,6 +80,14 @@ void Object::Render()
 	//m_shader->SetModelMatrix(m_ModelMatrix);
 	SetValueForUniformMatrix4FV("u_model", (GLfloat*)&m_ModelMatrix);
 	SetValueForUniformMatrix4FV("u_mvp", (GLfloat*)&(CameraManager::GetCurrentCamera()->GetVPMatrix() * m_ModelMatrix));
+	SetValueForUniformMatrix4FV("u_TransInvModel", (GLfloat*)&glm::transpose(glm::inverse(m_ModelMatrix)));
+	SetValueForUniform3FV("u_camPosition", (GLfloat*)&CameraManager::GetCurrentCamera()->GetPosCamera());
+
+	for (int i = 0; i < m_numTex; i++)
+	{
+		m_texture[i]->Render(m_program->getProgram(), i);
+	}
+	m_model->Render(m_program->getProgram());
 	//m_shader->SetMatrixMVP(glm::mat4x4(1));
 	//m_shader->Render();
 }
@@ -85,6 +120,8 @@ void Object::SetValueForUniformMatrix4FV(char * nameVar, const GLfloat * value)
 	{
 		glUniformMatrix4fv(idUniform, 1, GL_FALSE, value);
 	}
+	//else
+	//	LOGI("Object", "Can't glGetUniformLocation SetValueForUniformMatrix4FV");
 }
 
 void Object::SetValueForUniform1F(char * nameVar, GLfloat value)
@@ -95,6 +132,8 @@ void Object::SetValueForUniform1F(char * nameVar, GLfloat value)
 	{
 		glUniform1f(idUniform, value);
 	}
+	//else
+	//	LOGI("Object", "Can't glGetUniformLocation SetValueForUniform1F");
 }
 
 void Object::SetValueForUniform3FV(char * nameVar, const GLfloat * value)
@@ -105,6 +144,8 @@ void Object::SetValueForUniform3FV(char * nameVar, const GLfloat * value)
 	{
 		glUniform3fv(idUniform, 1, value);
 	}
+	//else
+	//	LOGI("Object", "Can't glGetUniformLocation SetValueForUniform3FV");
 }
 
 void Object::SetValueForUniform4FV(char * nameVar, const GLfloat * value)
@@ -115,4 +156,6 @@ void Object::SetValueForUniform4FV(char * nameVar, const GLfloat * value)
 	{
 		glUniform4fv(idUniform, 1, value);
 	}
+	/*else
+		LOGI("Object", "Can't glGetUniformLocation SetValueForUniform4FV");*/
 }

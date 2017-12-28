@@ -2,6 +2,7 @@
 #include "TGA.h"
 #include "ogles_sys.h"
 #include "Object.h"
+#include "Log.h"
 
 Texture::Texture(char* pathToLoad, char * nameTex)
 {
@@ -36,10 +37,14 @@ Texture::Texture(char* pathToLoad, char * nameTex)
 void Texture::Render(GLuint programIdx, int idx)
 {
 	// Active Texture
+	glUseProgram(programIdx);
 	glActiveTexture(GL_TEXTURE0 + idx);
 	glBindTexture(GL_TEXTURE_2D, m_texIdx);
 	GLint texUniform = glGetUniformLocation(programIdx, m_varNameTex);
-	glUniform1i(texUniform, idx);
+	if (texUniform != -1)
+		glUniform1i(texUniform, idx);
+	else
+		LOGI("Texture", "Can't glGetUniformLocation");
 }
 
 

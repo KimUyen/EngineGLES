@@ -1,7 +1,7 @@
 NumObjs: 5
 
 TypeTex: 1
-Shader: reflection
+VShader: reflection.vs FShader: reflection.fs
 Model: Bila.nfg
 Scale: 0.005
 Trans: -10.0 -40.0 200.0
@@ -11,7 +11,7 @@ NumTex: 1
 VarName: u_cube_tex
 
 TypeTex: 1
-Shader: cube
+VShader: cube.vs FShader: cube.fs
 Model: SkyBox.nfg
 Scale: 10
 Trans: 0.0 0.0 0.0
@@ -22,7 +22,7 @@ VarName: u_cube_tex
 
 
 TypeTex: 0
-Shader: simple
+VShader: simple.vs FShader: simple.fs
 Model: Woman1.nfg
 Scale: 0.1
 Trans: 0.0 0.0 0.0
@@ -32,7 +32,7 @@ NumTex: 1
 VarName: u_tex
 
 TypeTex: 0
-Shader: displacement
+VShader: displacement.vs FShader: displacement.fs
 Model: Fire.nfg
 Scale: 0.1
 Trans: 0.0 -7.0 -10.0
@@ -42,7 +42,7 @@ NumTex: 3
 VarName: FireTexture FireDisp FireMask
 
 TypeTex: 0
-Shader: normalMap
+VShader: normalMap.vs FShader: normalMap.fs
 Model: water.nfg
 Scale: 0.5
 Trans: 0.0 0.0 0.0

@@ -4,9 +4,6 @@
 #include "Texture.h"
 #include "GLModel.h"
 
-
-
-
 //Model::Model(char * pathToLoad)
 //{
 //	/////////////////
@@ -79,49 +76,72 @@
 //	glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(GLushort) * m_nIndices, m_pIndices, GL_STATIC_DRAW);
 //	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
 //}
-//
-//void Model::Render(GLuint programIdx)
-//{
-//	glUseProgram(programIdx);
-//	glBindBuffer(GL_ARRAY_BUFFER, m_VerticesBufferIdx);
-//
-//	GLint attribPos = glGetAttribLocation(programIdx, "a_posL");
-//	glEnableVertexAttribArray(attribPos);
-//	glVertexAttribPointer(attribPos, 3, GL_FLOAT, GL_FALSE, sizeof(NFGVertex), NULL);
-//
-//	GLint attribNorm = glGetAttribLocation(programIdx, "a_normL");
-//	if (attribNorm != -1)
-//	{
-//		glEnableVertexAttribArray(attribNorm);
-//		glVertexAttribPointer(attribNorm, 3, GL_FLOAT, GL_FALSE, sizeof(NFGVertex), (GLvoid*)offsetof(NFGVertex,norm));
-//	}
-//
-//	GLint attribUV = glGetAttribLocation(programIdx, "a_uvL");
-//	if (attribUV != -1)
-//	{
-//		glEnableVertexAttribArray(attribUV);
-//		glVertexAttribPointer(attribUV, 2, GL_FLOAT, GL_FALSE, sizeof(NFGVertex), (GLvoid*)offsetof(NFGVertex, uv));
-//	}
-//
-//	GLint attribTGT = glGetAttribLocation(programIdx, "a_tgtL");
-//	if (attribTGT != -1)
-//	{
-//		glEnableVertexAttribArray(attribTGT);
-//		glVertexAttribPointer(attribTGT, 3, GL_FLOAT, GL_FALSE, sizeof(NFGVertex), (GLvoid*)offsetof(NFGVertex, tgt));
-//	}
-//
-//	GLint attribBinorm = glGetAttribLocation(programIdx, "a_binormL");
-//	if (attribBinorm != -1)
-//	{
-//		glEnableVertexAttribArray(attribBinorm);
-//		glVertexAttribPointer(attribBinorm, 3, GL_FLOAT, GL_FALSE, sizeof(NFGVertex), (GLvoid*)offsetof(NFGVertex, binorm));
-//	}
-//	// Begin draw
-//	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, m_IndicesBufferIdx);
-//	glDrawElements(GL_TRIANGLES, m_nIndices, GL_UNSIGNED_SHORT, NULL);
-//}
+
+void GLModel::Render(GLuint programIdx)
+{
+	glUseProgram(programIdx);
+	glBindBuffer(GL_ARRAY_BUFFER, _vboIdx);
+	
+	GLint attribPos = glGetAttribLocation(programIdx, "a_posL");
+	glEnableVertexAttribArray(attribPos);
+	glVertexAttribPointer(attribPos, 3, GL_FLOAT, GL_FALSE, sizeof(NFGVertex), NULL);
+
+	GLint attribNorm = glGetAttribLocation(programIdx, "a_normL");
+	if (attribNorm != -1)
+	{
+		glEnableVertexAttribArray(attribNorm);
+		glVertexAttribPointer(attribNorm, 3, GL_FLOAT, GL_FALSE, sizeof(NFGVertex), (GLvoid*)offsetof(NFGVertex,norm));
+	}
+
+	GLint attribUV = glGetAttribLocation(programIdx, "a_uvL");
+	if (attribUV != -1)
+	{
+		glEnableVertexAttribArray(attribUV);
+		glVertexAttribPointer(attribUV, 2, GL_FLOAT, GL_FALSE, sizeof(NFGVertex), (GLvoid*)offsetof(NFGVertex, uv));
+	}
+
+	GLint attribTGT = glGetAttribLocation(programIdx, "a_tgtL");
+	if (attribTGT != -1)
+	{
+		glEnableVertexAttribArray(attribTGT);
+		glVertexAttribPointer(attribTGT, 3, GL_FLOAT, GL_FALSE, sizeof(NFGVertex), (GLvoid*)offsetof(NFGVertex, tgt));
+	}
+
+	GLint attribBinorm = glGetAttribLocation(programIdx, "a_binormL");
+	if (attribBinorm != -1)
+	{
+		glEnableVertexAttribArray(attribBinorm);
+		glVertexAttribPointer(attribBinorm, 3, GL_FLOAT, GL_FALSE, sizeof(NFGVertex), (GLvoid*)offsetof(NFGVertex, binorm));
+	}
+	// Begin draw
+	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, _iboIdx);
+	glDrawElements(GL_TRIANGLES, _nIndices, GL_UNSIGNED_SHORT, NULL);
+}
 
 bool GLModel::ImportModelFromFile(char * filePath)
 {
-	return false;
+	bool importOk = ImportModelFromNFGFile(filePath);
+	if (importOk)
+		InitBuffer();
+	return importOk;
+}
+
+
+
+void GLModel::InitBuffer()
+{
+	////////////////////////
+	//put it into buffer
+	///////////////////////
+	// vboIdx
+	glGenBuffers(1, &_vboIdx);
+	glBindBuffer(GL_ARRAY_BUFFER, _vboIdx);
+	glBufferData(GL_ARRAY_BUFFER, sizeof(NFGVertex) * _nVertices, _pVertices, GL_STATIC_DRAW);
+	glBindBuffer(GL_ARRAY_BUFFER, 0);
+
+	// iboIdx
+	glGenBuffers(1, &_iboIdx);
+	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, _iboIdx);
+	glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(GLushort) * _nIndices, _pIndices, GL_STATIC_DRAW);
+	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
 }

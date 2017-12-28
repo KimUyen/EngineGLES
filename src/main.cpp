@@ -12,23 +12,23 @@
 #include "FileSystem.h"
 #include "Application.h"
 #include "InputManager.h"
-std::vector <Object *> objList;
-
-void Render()
-{
-	glEnable(GL_DEPTH_TEST);
-	glEnable(GL_BLEND);
-	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-
-	glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
-	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-
-
-	for (int i = 0; i < objList.size(); i++)
-	{
-		objList[i]->Render();
-	}
-}
+//std::vector <Object *> objList;
+//
+//void Render()
+//{
+//	glEnable(GL_DEPTH_TEST);
+//	glEnable(GL_BLEND);
+//	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+//
+//	glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
+//	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+//
+//
+//	for (int i = 0; i < objList.size(); i++)
+//	{
+//		objList[i]->Render();
+//	}
+//}
 
 //void Update(float deltaTime)
 //{
@@ -64,7 +64,7 @@ void main()
 	Application::Initialize();
 
 	sysRegisterKeyFunc(&oglSysCtx, InputManager::Keyboard);
-	sysRegisterRenderFunc(&oglSysCtx, Render);
+	sysRegisterRenderFunc(&oglSysCtx, Application::Render);
 	sysRegisterUpdateFunc(&oglSysCtx, Application::Update);
 
 	sysMainLoop(&oglSysCtx);

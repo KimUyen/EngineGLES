@@ -34,20 +34,21 @@ vector<Object*> ResourceManager::LoadFrom(char * path)
 	int index = 0;
 	while (index < numObjs)
 	{
-		int id;
+		int typeTex;
 		float scale;
 		glm::vec3 trans;
 		char pathModel[30];
-		char pathShader[30];
+		char VShader[30];
+		char FShader[30];
 
 		int numPath;
 		char** pathTex;
 		int numTex;
 		char ** varTex;
 
-		fscanf(f, "TypeTex: %d\r\n", &id);
+		fscanf(f, "TypeTex: %d\r\n", &typeTex);
 		// shader path
-		fscanf(f, "Shader: %s\r\n", pathShader);
+		fscanf(f, "VShader: %s FShader: %s\r\n", VShader, FShader);
 		// model path
 		fscanf(f, "Model: %s\r\n", pathModel);
 		// Scale
@@ -93,10 +94,15 @@ vector<Object*> ResourceManager::LoadFrom(char * path)
 
 		// Add object to list
 		//Object * newObj = new Object(id, pathShader, pathModel, numTex, varTex, numPath, pathTex);
-		Object * newObj = new Object(id);
-		newObj->SetScale(glm::vec3(scale, scale, scale));
-		newObj->SetTranslate(trans);
-		ListObj.push_back(newObj);
+
+
+		Object * obj = new Object(index);
+		obj->LoadModel(pathModel);
+		obj->LoadTexture(typeTex, varTex, pathTex, numTex);
+		obj->CreateProgram(VShader, FShader);
+		obj->SetScale(glm::vec3(scale, scale, scale));
+		obj->SetTranslate(trans);
+		ListObj.push_back(obj);
 		index++;
 	}
 
