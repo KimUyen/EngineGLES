@@ -98,7 +98,7 @@ vector<Object*> ResourceManager::LoadFrom(char * path)
 
 		Object * obj = new Object(index);
 		obj->LoadModel(pathModel);
-		obj->LoadTexture(typeTex, varTex, pathTex, numTex);
+		obj->LoadTexture(typeTex, varTex, numTex, pathTex, numPath);
 		obj->CreateProgram(VShader, FShader);
 		obj->SetScale(glm::vec3(scale, scale, scale));
 		obj->SetTranslate(trans);

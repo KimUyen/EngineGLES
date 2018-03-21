@@ -14,5 +14,5 @@
 #ifdef ANDROID
 #	define LOG(tag, level, ...)		{  __android_log_print(ANDROID_LOG_INFO, tag, __VA_ARGS__); }
 #else
-#	define LOG(tag, level, ...)		{  printf("UYENKIM/"); printf(tag); printf(level); printf(__VA_ARGS__); }
+#	define LOG(tag, level, ...)		{ printf(tag); printf("/"); printf(level); printf("::::::"); printf(__VA_ARGS__); }
 #endif

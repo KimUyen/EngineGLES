@@ -3,7 +3,7 @@
 #include <stdio.h>
 #include <Windows.h>
 #include <assert.h>
-
+#include "Log.h"
 /*
 * process_window(): This function handles Windows callbacks.
 */
@@ -28,9 +28,29 @@ LRESULT CALLBACK ProcessWindow(HWND hWnd, UINT uiMsg, WPARAM wParam, LPARAM lPar
 	}
 	break;
 	case WM_KEYUP:
-	{		
+	{
 		if (sysCtx && sysCtx->keyFunc)
 			sysCtx->keyFunc((unsigned char)wParam, false);
+	}
+	break;
+	case WM_LBUTTONDOWN:
+	{
+		if (sysCtx && sysCtx->touchFunc)
+			sysCtx->touchFunc(TOUCH::DOWN, LOWORD(lParam), HIWORD(lParam));
+	}
+	break;
+	case WM_LBUTTONUP:
+	{
+		if (sysCtx && sysCtx->touchFunc)
+			sysCtx->touchFunc(TOUCH::UP, LOWORD(lParam), HIWORD(lParam));
+	}
+	break;
+	case WM_MOUSEMOVE:
+	{
+		int x = LOWORD(lParam);
+		int y = HIWORD(lParam);
+		if (sysCtx && sysCtx->touchFunc)
+			sysCtx->touchFunc(TOUCH::MOVE, LOWORD(lParam), HIWORD(lParam));
 	}
 	break;
 	case WM_PAINT:
@@ -423,6 +443,12 @@ void sysRegisterKeyFunc(SysContext* sysCtx, void(*func)(unsigned char, bool))
 {
 	if (sysCtx)
 		sysCtx->keyFunc = func;
+}
+
+void sysRegisterTouchFunc(SysContext* sysCtx, void(*func)(TOUCH, int x, int y))
+{
+	if (sysCtx)
+		sysCtx->touchFunc = func;
 }
 
 void sysCleanUp(SysContext* sysCtx)

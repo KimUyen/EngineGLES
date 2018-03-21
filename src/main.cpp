@@ -64,6 +64,7 @@ void main()
 	Application::Initialize();
 
 	sysRegisterKeyFunc(&oglSysCtx, InputManager::Keyboard);
+	sysRegisterTouchFunc(&oglSysCtx, InputManager::Touch);
 	sysRegisterRenderFunc(&oglSysCtx, Application::Render);
 	sysRegisterUpdateFunc(&oglSysCtx, Application::Update);
 

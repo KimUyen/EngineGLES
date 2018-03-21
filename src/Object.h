@@ -32,7 +32,7 @@ public:
 	Object(int id);
 	~Object();
 	bool		LoadModel(char * path);
-	void		LoadTexture(int typeTex, char** varTex, char ** allpath, int numTex);
+	void		LoadTexture(int typeTex, char** varTex, int numTex, char ** allpath, int numPath);
 	GLuint		CreateProgram(const char * vertexSrc, const char * pixelSrc);
 	void		Render();
 	// for call before render.

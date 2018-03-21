@@ -1,4 +1,14 @@
-NumObjs: 1
+NumObjs: 2
+
+TypeTex: 0
+VShader: simple.vs FShader: simple.fs
+Model: Woman1.nfg
+Scale: 0.1
+Trans: 0.0 0.0 0.0
+Numpath: 1
+Texture: Woman1.tga
+NumTex: 1
+VarName: u_tex
 
 TypeTex: 1
 VShader: cube.vs FShader: cube.fs

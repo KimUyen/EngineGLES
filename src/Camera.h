@@ -19,6 +19,7 @@ private:
 
 	void UpdateCameraVetors();
 	glm::mat4x4 CalVPMatrix() { m_VP = m_MatrixProjection * m_MatrixView; return m_VP; }
+	glm::mat4x4 GetRotationMatrix();
 public:
 
 	Camera(glm::vec3 pos, glm::vec3 target, glm::vec3 right, float fovy, float aspect, float zNear, float zFar);
@@ -31,6 +32,7 @@ public:
 
 	void Move(DirectMove direct, float deltaTime, float speed);
 	void Rotate(DirectRotate direct, float angle);
+	void RotateAroundObject(DirectRotate direct, float angle);
 
 };
 

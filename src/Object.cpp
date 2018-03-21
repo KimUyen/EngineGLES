@@ -25,7 +25,7 @@ bool Object::LoadModel(char * path)
 	return m_model->ImportModelFromFile(path);
 }
 
-void Object::LoadTexture(int typeTex, char ** varNameTex, char ** pathTex, int numTex)
+void Object::LoadTexture(int typeTex, char ** varNameTex, int numTex, char ** pathTex, int numPath)
 {
 	m_numTex = numTex;
 	switch (typeTex)
@@ -40,7 +40,7 @@ void Object::LoadTexture(int typeTex, char ** varNameTex, char ** pathTex, int n
 
 	case TypeTexture::TEX_CUBE:
 		m_texture = new Texture *[1];
-		m_texture[0] = (Texture*)(new CubeTex(pathTex, m_numTex, varNameTex[0]));
+		m_texture[0] = (Texture*)(new CubeTex(pathTex, numPath, varNameTex[0]));
 		break;
 
 	default:

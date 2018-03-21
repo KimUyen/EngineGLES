@@ -35,5 +35,6 @@ void main()
 	vec4 diffComp = max(dot(normalW, -lightDirect), 0.0) * u_diffLight;
 	vec4 specComp = pow(max(dot(reflectVec, toEye), 0.0), 20.0) * u_specLight;
 
-	gl_FragColor = vec4(((ambComp * u_weight + (1.0 - u_weight) * diffComp) * objColor + specComp).xyz, objColor.w);
+	//gl_FragColor = vec4(((ambComp * u_weight + (1.0 - u_weight) * diffComp) * objColor + specComp).xyz, objColor.w);
+	gl_FragColor = vec4(objColor);
 } 

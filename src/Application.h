@@ -9,6 +9,7 @@ class Application
 {
 private:
 	static std::vector<Object*> _objects;
+	Application();
 public:
 	static void Render();
 	static void Initialize();
